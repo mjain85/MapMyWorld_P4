@@ -1,18 +1,21 @@
-# GoChase
-Robotics
-In this project, you should create two ROS packages inside your catkin_ws/src: the drive_bot and the ball_chaser. Here are the steps to design the robot, house it inside your world, and program it to chase white-colored balls:
+# MayMyworld
+Welcome to Project 3: Map My World! In this project you will create a 2D occupancy grid and 3D octomap from a simulated environment using your own robot with the RTAB-Map package.
 
-drive_bot:
+RTAB-Map (Real-Time Appearance-Based Mapping) is a popular solution for SLAM to develop robots that can map environments in 3D. RTAB-Map has good speed and memory management, and it provides custom developed tools for information analysis. Most importantly, the quality of the documentation on ROS Wiki (http://wiki.ros.org/rtabmap_ros) is very high. Being able to leverage RTAB-Map with your own robots will lead to a solid foundation for mapping and localization well beyond this Nanodegree program.
 
-Create a my_robot ROS package to hold your robot, the white ball, and the world.
-Design a differential drive robot with the Unified Robot Description Format. Add two sensors to your robot: a lidar and a camera. Add Gazebo plugins for your robots differential drive, lidar, and camera. The robot you design should be significantly different from the one presented in the project lesson. Implement significant changes such as adjusting the color, wheel radius, and chassis dimensions. Or completely redesign the robot model! After all you want to impress your future employers :-D
-House your robot inside the world you built in the Build My World project.
-Add a white-colored ball to your Gazebo world and save a new copy of this world.
-The world.launch file should launch your world with the white-colored ball and your robot.
-ball_chaser:
+For this project we will be using the rtabmap_ros package, which is a ROS wrapper (API) for interacting with RTAB-Map. Keep this in mind when looking at the relative documentation.
 
-Create a ball_chaser ROS package to hold your C++ nodes.
-Write a drive_botC++ node that will provide a ball_chaser/command_robot service to drive the robot by controlling its linear x and angular z velocities. The service should publish to the wheel joints and return back the requested velocities.
-Write a process_image C++ node that reads your robots camera image, analyzes it to determine the presence and position of a white ball. If a white ball exists in the image, your node should request a service via a client to drive the robot towards it.
-The ball_chaser.launch should run both the drive_bot and the process_image nodes.
-The robot you design in this project will be used as a base model for all your upcoming projects in this Robotics Software Engineer Nanodegree Program.
+Project Instructions
+Udacity provides you with a in-classroom Workspace with ROS configured to work on the project. If you need a refresher, check out the Workspace tutorials.
+
+The project flow will be as follows:
+
+You will develop your own package to interface with the rtabmap_ros package.
+
+You will build upon your localization project to make the necessary changes to interface the robot with RTAB-Map. An example of this is the addition of an RGB-D camera.
+
+You will ensure that all files are in the appropriate places, all links are properly connected, naming is properly setup and topics are correctly mapped. Furthermore you will need to generate the appropriate launch files to launch the robot and map its surrounding environment.
+
+When your robot is launched you will teleop around the room to generate a proper map of the environment.
+
+We are excited to see you grow with your ROS skills and we can't wait to see what your map looks like!
